@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Age of Snehal</title>
+    <!-- Tailwind CSS CDN for utility grid layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Elegant Vintage Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+    <!-- FontAwesome for Vintage icons and Media Controls -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind Custom Theme Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vintage: {
+                            cream: '#fdfbf7',
+                            creamDark: '#eae0d5',
+                            charcoal: '#2c2520',
+                            charcoalLight: '#4a3f35',
+                            orange: '#9a3412',
+                            orangeLight: '#c2410c',
+                            amber: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Poppins', 'sans-serif'],
+                        serif: ['DM Serif Display', 'Noto Serif Devanagari', 'serif'],
+                        instrument: ['Instrument Serif', 'serif'],
+                        mono: ['Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-vintage-cream text-vintage-charcoal font-sans antialiased selection:bg-vintage-orange selection:text-white relative">
+    
+    <!-- Film Grain Background Overlay -->
+    <div class="film-grain-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.035]"></div>
+
+    <!-- Header / Introduction -->
+    <header class="py-24 px-6 text-center border-b border-vintage-charcoal/10 max-w-5xl mx-auto relative">
+        <!-- Vintage Corner Decorative Ornaments -->
+        <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-vintage-orange/30"></div>
+        <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-vintage-orange/30"></div>
+        <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-vintage-orange/30"></div>
+        <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-vintage-orange/30"></div>
+
+        <span class="text-xs uppercase tracking-[0.25em] text-vintage-orange font-semibold block mb-4">A Cinematic Celebration</span>
+        <h1 class="font-serif text-5xl md:text-8xl font-normal tracking-tight mb-6">
+            The Golden Age of <span class="italic font-instrument text-vintage-orange">Snehal</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-sm md:text-base text-vintage-charcoal/70 leading-relaxed font-light font-sans">
+            An elegant journey back to the melodies, timeless grace, and unforgettable stories of classic retro cinema. Dedicated to a beautiful soul born in the wrong decade.
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
+
+        <!-- SECTION 1: 📻 Your Radio Station (Jukebox Console) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Side: Tracklist -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="space-y-1">
+                    <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">RADIO FM 87.4</span>
+                    <h2 class="font-serif text-3xl md:text-4xl">Today's Guest: Snehal</h2>
+                    <p class="text-xs italic text-vintage-orange font-medium mt-1">Special Programming: Songs from the decade she was always meant for.</p>
+                </div>
+                <p class="text-sm text-vintage-charcoal/70 leading-relaxed font-light">
+                    Select a classic track from the catalog index card. Watch the vinyl turntable needle slide into place and the tape wheels spin.
+                </p>
+                
+                <!-- Tracklist Scrollable Container -->
+                <div id="tracklist" class="space-y-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+                    <!-- Dynamic Tracks Injected here via script.js -->
+                </div>
+            </div>
+
+            <!-- Right Side: Jukebox Turntable UI -->
+            <div class="lg:col-span-7 flex flex-col items-center justify-center bg-vintage-creamDark/40 p-8 rounded-2xl border border-vintage-charcoal/10 shadow-xs relative">
+                <!-- Turntable Body -->
+                <div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center bg-zinc-900 rounded-full border-8 border-vintage-charcoal shadow-2xl">
+                    
+                    <!-- Vinyl Disk -->
+                    <div id="vinyl-record" class="w-[94%] h-[94%] bg-stone-950 rounded-full flex items-center justify-center relative border border-black transition-transform duration-[4000ms] ease-out">
+                        <!-- Grooves -->
+                        <div class="absolute inset-[8%] rounded-full border border-neutral-900/60"></div>
+                        <div class="absolute inset-[16%] rounded-full border border-neutral-900/50"></div>
+                        <div class="absolute inset-[24%] rounded-full border border-neutral-900/40"></div>
+                        <div class="absolute inset-[32%] rounded-full border border-neutral-900/30"></div>
+                        
+                        <!-- Record Center Label -->
+                        <div class="w-[36%] h-[36%] bg-vintage-orange rounded-full flex flex-col items-center justify-center text-center p-2 text-white/90 shadow-inner z-10">
+                            <span class="text-[6px] font-mono tracking-widest uppercase opacity-75">Retro Records</span>
+                            <p id="label-title" class="font-serif text-[8.5px] uppercase tracking-wider truncate max-w-full my-0.5">Select Track</p>
+                            <div class="w-3.5 h-3.5 bg-vintage-cream rounded-full border border-black/20 mt-1 shadow-inner"></div>
+                        </div>
+                    </div>
+
+                    <!-- Turntable Needle Arm -->
+                    <div id="turntable-needle" class="absolute top-4 right-10 w-8 h-36 origin-[top_center] transition-transform duration-1000 ease-in-out z-20 pointer-events-none">
+                        <!-- Custom Arm Drawing -->
+                        <svg width="40" height="150" viewBox="0 0 40 150" fill="none" class="drop-shadow-md">
+                            <circle cx="20" cy="15" r="10" fill="#a3a3a3"/>
+                            <rect x="18" y="15" width="4" height="110" fill="#d4d4d4"/>
+                            <path d="M16 125L24 125L22 145L18 145Z" fill="#737373"/>
+                            <circle cx="20" cy="142" r="2.5" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Jukebox Controls Display -->
+                <div class="w-full max-w-sm mt-8 space-y-4">
+                    <div class="text-center space-y-1">
+                        <h4 id="current-title" class="font-serif text-lg text-vintage-charcoal">No Track Selected</h4>
+                        <p id="current-artist" class="text-[10px] text-vintage-charcoal/60 uppercase tracking-widest">Select an LP track</p>
+                    </div>
+                    
+                    <!-- Progress Bar Slider -->
+                    <div class="flex items-center space-x-3 text-xs text-vintage-charcoal/60 font-mono">
+                        <span id="time-current">0:00</span>
+                        <input type="range" id="progress-bar" value="0" min="0" max="100" class="w-full accent-vintage-orange bg-vintage-charcoal/10 h-1 rounded-lg cursor-pointer">
+                        <span id="time-total">0:00</span>
+                    </div>
+
+                    <!-- Media Controls -->
+                    <div class="flex items-center justify-center space-x-8 text-vintage-charcoal">
+                        <button id="btn-prev" class="hover:text-vintage-orange transition-colors cursor-pointer"><i class="fas fa-backward-step text-lg"></i></button>
+                        <button id="btn-play-pause" class="w-12 h-12 rounded-full bg-vintage-charcoal text-vintage-cream flex items-center justify-center hover:bg-vintage-orange hover:scale-105 transition-all cursor-pointer"><i id="play-icon" class="fas fa-play ml-0.5"></i></button>
+                        <button id="btn-next" class="hover:text-vintage-orange transition-colors cursor-pointer"><i class="fas fa-forward-step text-lg"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 3: 📽 Deleted Scenes From Your 80s Life -->
+        <section class="space-y-10">
+            <div class="text-center max-w-xl mx-auto space-y-3 px-4">
+                <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">The Alternate Screenplays</span>
+                <h2 class="font-serif text-3xl md:text-4xl">Deleted Scenes From Your 80s Life</h2>
+                <p class="text-sm text-vintage-charcoal/70 font-light leading-relaxed">
+                    Script fragments recovered from a parallel cinematic universe.
+                </p>
+            </div>
+
+            <!-- Dynamic Scenes Grid -->
+            <div id="scenes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+                <!-- Injected dynamically via script.js -->
+            </div>
+        </section>
+
+        <hr class="border-vintage-charcoal/10">
+
+        <!-- SECTION 4: 🎞 The Recovered Film Roll (Photo Archives) -->
+        <section id="archives-section" class="space-y-12">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">Found Archives</span>
+                <h2 class="font-serif text-3xl md:text-4xl">The Recovered Film Roll</h2>
+                <p class="text-sm text-vintage-charcoal/70 font-light">
+                    REEL #28 • FOUND: JULY 1987 • LOCATION: KOLHAPUR
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-4xl mx-auto">
+                
+                <!-- Component A: Filmfare Magazine Cover -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="w-full max-w-[280px] aspect-[3/4] bg-neutral-900 border-[6px] border-white shadow-2xl relative flex flex-col justify-between p-5 overflow-hidden group rounded-xs">
+                        <!-- [DEVELOPER NOTE: Swap your real local image path in src below] -->
+                        <img src="./img2.jpg" alt="Snehal Filmfare Cover" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.1] transition-transform duration-700 group-hover:scale-105">
+                        
+                        <!-- Top Header Overlays -->
+                        <div class="relative z-10 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                            <div class="flex justify-between items-baseline border-b border-white/40 pb-1 mb-1">
+                                <span class="text-[9px] font-mono tracking-widest text-white/95">JULY 1988</span>
+                                <span class="text-[9px] font-mono text-white/95">VOL. 32 NO. 7</span>
+                            </div>
+                            <h3 class="font-serif text-3xl tracking-tight text-red-600 font-extrabold select-none text-center">FILMFARE</h3>
+                        </div>
+
+                        <!-- Headlines Overlay -->
+                        <div class="relative z-10 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] space-y-3 text-left">
+                            <div class="border-l-4 border-vintage-orange pl-3 space-y-1">
+                                <h4 class="font-serif text-2xl leading-none font-bold italic tracking-tight text-yellow-400">SNEHAL!</h4>
+                                <p class="text-[9px] uppercase tracking-wider font-light text-white/95">The New Grace of Indian Cinema</p>
+                            </div>
+                            <p class="text-[10px] font-light leading-snug">
+                                Exclusive Interview: "Why I belong to the golden era of deep lyrics & timeless melodies..."
+                            </p>
+                            <p class="text-[9px] font-mono text-yellow-400 uppercase tracking-widest border-t border-white/20 pt-1 font-bold">
+                                Rs. 5.00 • SPECIAL COLLECTOR'S ISSUE
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component B & C: Film strip and Viewfinder -->
+                <div class="lg:col-span-8 flex flex-col justify-between space-y-6">
+                    <!-- Film Strip Container -->
+                    <div class="relative w-full overflow-hidden bg-[#1c1917] py-6 rounded-xl border border-neutral-900 shadow-xl select-none">
+                        <!-- Top sprocket line -->
+                        <div class="absolute top-1 left-0 right-0 h-3 bg-repeating-sprockets pointer-events-none z-20"></div>
+
+                        <!-- Scrolling Track -->
+                        <div class="flex animate-film-scroll whitespace-nowrap py-2" style="width: max-content;">
+                            
+                            <!-- Set 1 -->
+                            <div class="flex items-center space-x-6 pr-6">
+                                <!-- Frame 1 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 12A</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img1.jpg" alt="Snehal Frame 1" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">12A</span>
+                                </div>
+                                
+                                <!-- Frame 2 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 13</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img2.jpg" alt="Snehal Frame 2" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">13</span>
+                                </div>
+
+                                <!-- Frame 3 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 14</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img3.jpg" alt="Snehal Frame 3" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">14</span>
+                                </div>
+
+                                <!-- Frame 4 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 15</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img4.jpg" alt="Snehal Frame 4" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">15</span>
+                                </div>
+                            </div>
+
+                            <!-- Set 2 (Duplicate for seamless infinite looping) -->
+                            <div class="flex items-center space-x-6 pr-6">
+                                <!-- Frame 1 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 12A</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img1.jpg" alt="Snehal Frame 1" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">12A</span>
+                                </div>
+                                
+                                <!-- Frame 2 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 13</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img2.jpg" alt="Snehal Frame 2" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">13</span>
+                                </div>
+
+                                <!-- Frame 3 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 14</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img3.jpg" alt="Snehal Frame 3" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">14</span>
+                                </div>
+
+                                <!-- Frame 4 -->
+                                <div class="inline-flex flex-col bg-black p-2 border border-neutral-800/80 rounded-xs shadow-md">
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mb-1 block">KODAK 5063 &bull; 15</span>
+                                    <div class="w-40 h-40 overflow-hidden bg-neutral-900 cursor-zoom-in">
+                                        <img src="./img4.jpg" alt="Snehal Frame 4" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.3] contrast-[1.2] hover:scale-110 transition-transform duration-300">
+                                    </div>
+                                    <span class="text-[8px] font-mono text-neutral-500 text-center mt-1 block">15</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sprocket bottom overlay -->
+                        <div class="absolute bottom-1 left-0 right-0 h-3 bg-repeating-sprockets pointer-events-none z-20"></div>
+                    </div>
+
+                    <!-- Component C: Viewfinder Candid photo -->
+                    <div class="bg-vintage-creamDark/40 p-6 rounded-xl border border-vintage-charcoal/5 flex flex-col md:flex-row gap-6 items-center shadow-xs">
+                        <div class="relative w-40 h-40 flex-shrink-0 bg-black border-2 border-vintage-orange rounded-lg overflow-hidden shadow-inner group">
+                            <!-- Film grain overlay inside viewfinder -->
+                            <div class="grain-overlay opacity-30"></div>
+                            <!-- Sepia Photo -->
+                            <!-- [DEVELOPER NOTE: Swap your real local image path in src below] -->
+                            <img src="img5.jpg" alt="Snehal Vintage candid" onclick="openLightbox(this)" class="w-full h-full object-cover filter sepia-[0.65] contrast-[1.2] brightness-[0.85] saturate-[0.8] hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                            <!-- Viewfinder overlay grid -->
+                            <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-20">
+                                <div class="w-4 h-[1.5px] bg-white/40"></div>
+                                <div class="h-4 w-[1.5px] bg-white/40"></div>
+                            </div>
+                            <!-- Rec indicator -->
+                            <div class="absolute top-2 left-2 flex items-center space-x-1 pointer-events-none z-20">
+                                <span class="h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
+                                <span class="text-[8px] font-mono text-white uppercase tracking-tighter">REC</span>
+                            </div>
+                            <!-- Date Stamp -->
+                            <div class="absolute bottom-2 right-2 text-[#ea580c] font-mono text-[9px] font-bold tracking-wider pointer-events-none z-20">
+                                05 / 07 / 1987
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 text-left">
+                            <span class="text-xs uppercase tracking-[0.15em] text-vintage-orange font-semibold"><i class="fa-solid fa-camera mr-1"></i> If this photo was taken in 1987...</span>
+                            <h4 class="font-serif text-lg text-vintage-charcoal">The Archival Capture</h4>
+                            <p class="text-xs text-vintage-charcoal/80 font-light leading-relaxed">
+                                Preserved with digital date stamps, heavy sepia processing, and realistic camera grain.
+                            </p>
+                            <p class="text-[10px] font-mono text-vintage-orange/70 italic mt-2">
+                                "Recovered from a forgotten Filmfare issue, July 1988."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="border-vintage-charcoal/10">
+
+        <!-- SECTION 5: 🎭 What Would Bollywood Cast You As? -->
+        <section class="space-y-10">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">Casting Office</span>
+                <h2 class="font-serif text-3xl md:text-4xl">The Casting Director's Notes</h2>
+                <p class="text-sm text-vintage-charcoal/70 font-light">
+                    Click to see which iconic retro filmmaker's vision matches your energy.
+                </p>
+            </div>
+
+            <div class="max-w-md mx-auto text-center space-y-6 p-8 bg-vintage-creamDark/30 rounded-2xl border border-vintage-charcoal/10 shadow-inner">
+                <!-- Casting outcome box -->
+                <div id="casting-display" class="bg-vintage-cream border border-vintage-charcoal/10 py-8 px-6 rounded-xl flex flex-col items-center justify-center min-h-[140px] transition-all duration-300">
+                    <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-vintage-charcoal/40 mb-2">Audition Outcome</span>
+                    <p id="casting-result" class="font-serif text-2xl text-vintage-orange italic">Click below to consult the directors</p>
+                    <p id="casting-subtext" class="text-xs text-vintage-charcoal/60 mt-2 font-light hidden"></p>
+                </div>
+
+                <button onclick="spinCastingWheel()" class="w-full py-3 bg-vintage-charcoal hover:bg-vintage-orange text-white text-xs uppercase tracking-widest rounded-lg transition-all font-medium cursor-pointer shadow-md hover:shadow-lg transform active:scale-[0.98]">
+                    <i class="fa-solid fa-clapperboard mr-2"></i> Consult the Directors
+                </button>
+            </div>
+        </section>
+
+        <hr class="border-vintage-charcoal/10">
+
+        <!-- SECTION 6: 📺 Doordarshan Broadcast & Things That Make You "You" -->
+        <section id="doordarshan-section" class="max-w-4xl mx-auto space-y-10">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">Live Transmission</span>
+                <h2 class="font-serif text-3xl md:text-4xl">Doordarshan Special Bulletin</h2>
+            </div>
+
+            <!-- CRT TV Casing -->
+            <div class="bg-stone-800 border-[12px] border-zinc-700 p-4 md:p-8 rounded-[2.5rem] shadow-2xl relative max-w-2xl mx-auto flex flex-col crt-tv border-double">
+                <!-- Glass Screen Highlight/Curve -->
+                <div class="crt-screen-reflection pointer-events-none absolute inset-0 z-20"></div>
+                <!-- Scanlines -->
+                <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,6px_100%] pointer-events-none z-10 opacity-70"></div>
+
+                <div class="relative z-10 text-emerald-400 font-mono text-xs space-y-4">
+                    <!-- Header bar -->
+                    <div class="flex justify-between items-center border-b border-emerald-500/25 pb-2 text-[10px] uppercase tracking-widest opacity-80">
+                        <span class="flex items-center">
+                            DD NATIONAL • RETRO SCAN
+                            <i id="tv-speaker-icon" class="fa-solid fa-volume-high animate-pulse text-[9px] ml-2 text-emerald-400 hidden"></i>
+                        </span>
+                        <span class="animate-pulse">● LIVE INTERVIEW</span>
+                    </div>
+
+                    <!-- Full text shown at once -->
+                    <h3 class="font-serif text-sm md:text-base text-white tracking-normal font-bold leading-relaxed">
+                        विशेष बुलेटिन: जाँच से पुष्टि हुई है कि आपका दिल पुराने कैसेट टेप, किशोर कुमार के गानों और यश चोपड़ा की बरसाती फ़िल्मों के बीच धड़कता है।
+                    </h3>
+
+                    <div class="space-y-3 text-[11px] md:text-xs">
+                        <span class="text-emerald-500 block uppercase font-bold tracking-wider">कुछ ख़ास बातें जो मैंने देखीं:</span>
+                        <ul class="space-y-2 list-none pl-0 text-emerald-300">
+                            <li class="flex items-start"><span class="mr-2">•</span> तुम्हें पुराने गानों के एक-एक शब्द ज़ुबानी याद हैं।</li>
+                            <li class="flex items-start"><span class="mr-2">•</span> तुम किसी भी थीम के लिए बेहद सलीके और पूरी शिद्दत से तैयार होती हो।</li>
+                            <li class="flex items-start"><span class="mr-2">•</span> जब भी तुम पुरानी फ़िल्मों की बात करती हो, तुम्हारी आँखें चमक उठती हैं।</li>
+                            <li class="flex items-start"><span class="mr-2">•</span> तुम्हारा आज भी मानना है कि हाथ से लिखी पुरानी चीज़ों में एक जादुई एहसास होता है।</li>
+                            <li class="flex items-start"><span class="mr-2">•</span> जिन चीज़ों को लोग अक्सर अनदेखा कर गुज़र जाते हैं, तुम उनमें भी कहानियाँ और ख़ूबसूरती ढूँढ लेती हो।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 8: The Letter Box (Final Message) -->
+        <section class="max-w-3xl mx-auto">
+            <div class="postcard-card p-8 md:p-12 rounded-2xl border border-vintage-charcoal/10 shadow-lg relative overflow-hidden bg-gradient-to-br from-[#fdfbf7] via-[#eae0d5]/40 to-[#d8ccbe]/60">
+                <!-- Decorative Postmark -->
+                <div class="absolute top-4 right-4 w-20 h-20 border-2 border-dashed border-vintage-orange/20 rounded-full flex flex-col items-center justify-center -rotate-12 opacity-35 select-none font-mono">
+                    <span class="text-[7.5px] text-vintage-orange">05 JUL 2026</span>
+                    <span class="text-[6.5px] text-vintage-orange font-bold">AIR MAIL</span>
+                </div>
+                
+                <div class="space-y-6 text-vintage-charcoal">
+                    <h3 class="font-serif text-3xl text-vintage-orange italic border-b border-vintage-charcoal/10 pb-4">Dearest Snehal,</h3>
+                    
+                    <div class="font-instrument text-2xl leading-relaxed text-vintage-charcoal/90 space-y-4">
+               <p>
+    People often say that everyone belongs to the time they are born in. But honestly, I've always felt that some people are exceptions. And I think you're one of them.
+</p>
+
+<p>
+    In a world where everything changes so quickly, you've somehow managed to hold on to things that never really go out of style — old songs, meaningful stories, beautiful lyrics, and the kind of emotions that stay with us long after the movie ends or the music stops.
+</p>
+
+<p>
+    I've always found it fascinating how much you genuinely love old Bollywood. You don't just listen to those songs because they're popular classics, and you don't watch those movies just for entertainment. You enjoy the feelings, the stories, the poetry, and the little details that make that era so special.
+</p>
+
+<p>
+    Maybe that's why I've always felt that you carry a little bit of that golden era within you. The warmth, the simplicity, and the timeless charm that people still miss today.
+</p>
+
+<p>
+    So on your birthday, I just want to wish that you never lose this part of yourself. Keep loving old songs, keep getting excited about classic movies, and keep being exactly the person you are.
+</p>
+
+<p>
+    Wishing you a birthday filled with happiness, good memories, beautiful music, and everything that makes your heart feel at home.
+</p>
+
+<p>
+    Happy Birthday. And honestly, if there really was an alternate universe somewhere in the 70s or 80s, I'm pretty sure you would've been one of its brightest stars. ✨
+</p>
+                    </div>
+                    
+                    <div class="text-right border-t border-vintage-charcoal/10 pt-6">
+                        <span class="font-serif text-lg text-vintage-charcoal/60">From someone who believes you were born in the right world, but perhaps the wrong decade.</span>
+                        <!-- <div class="font-instrument text-3xl italic text-vintage-orange mt-2">The Golden Era Admirers</div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-vintage-charcoal/10">
+
+        <!-- Section 9: The Retro Trivia Challenge -->
+        <section class="space-y-10">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest text-vintage-orange font-semibold">Test Your Filmy IQ</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-center">The Retro Trivia Challenge</h2>
+                <p class="text-sm text-vintage-charcoal/70 font-light">
+                    How well do you know the golden era of Indian cinema? Answer these handpicked questions to prove your retro superstar status!
+                </p>
+            </div>
+            <div id="quiz-box" class="max-w-2xl mx-auto bg-vintage-creamDark/60 p-8 rounded-2xl border border-vintage-charcoal/5 shadow-xs transition-all duration-[1000ms] relative overflow-hidden">
+                <!-- Dynamic Quiz Content -->
+                <div id="quiz-content" class="transition-all duration-500">
+                    <!-- Injected dynamically via script.js -->
+                </div>
+
+                <!-- Filmfare Special Awards Ceremony (Hidden by Default) -->
+                <div id="award-certificate" class="hidden opacity-0 scale-95 transition-all duration-[1000ms]">
+                    <div class="certificate-frame">
+                        <div class="certificate-border-inner text-center space-y-6">
+                            <span class="text-[10px] font-mono tracking-[0.25em] text-vintage-orange font-bold uppercase block">FILMFARE SPECIAL AWARDS | 1987</span>
+                            
+                            <div class="py-2">
+                                <h3 class="font-serif text-3xl text-vintage-charcoal tracking-tight font-bold">🏆 Lifetime Achievement Award</h3>
+                            </div>
+                            
+                            <div class="space-y-4 py-6 border-y border-vintage-charcoal/10">
+                                <p class="text-xs uppercase tracking-widest text-vintage-charcoal/50 font-mono">Awarded to</p>
+                                <p class="font-serif text-4xl text-vintage-orange italic font-bold">Snehal</p>
+                                <p class="text-xs uppercase tracking-widest text-vintage-charcoal/50 font-mono mt-4">For</p>
+                                <p class="font-instrument text-3xl text-vintage-charcoal/90 leading-relaxed max-w-md mx-auto">
+                                    Keeping old songs, old movies, and old magic alive in a modern world.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Score details and control actions (Outside the frame for clean download capture) -->
+                    <div class="pt-6 space-y-4 flex flex-col items-center">
+                        <p id="certificate-score" class="text-xs font-mono text-vintage-charcoal/60 uppercase tracking-widest">
+                            Final Score: 0 / 4
+                        </p>
+                        <p id="certificate-praise" class="text-[11px] text-vintage-charcoal/70 max-w-sm italic font-light text-center"></p>
+                        <div class="flex flex-wrap gap-3 justify-center items-center mt-2">
+                            <button onclick="downloadAward()" class="px-6 py-2.5 bg-vintage-orange hover:bg-vintage-orangeLight text-white text-xs uppercase tracking-widest rounded-lg transition-colors font-medium cursor-pointer shadow-sm flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-download"></i> <span>Download Award</span>
+                            </button>
+                            <button onclick="resetQuiz()" class="px-6 py-2.5 bg-vintage-charcoal hover:bg-vintage-orange text-white text-xs uppercase tracking-widest rounded-lg transition-colors font-medium cursor-pointer shadow-sm">
+                                Replay Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-overlay" onclick="closeLightbox()" class="fixed inset-0 z-[999] flex items-center justify-center hidden" style="background: rgba(0,0,0,0.65); opacity:0; transition: opacity 0.3s ease;">
+            <button onclick="closeLightbox()" class="absolute top-5 right-6 text-white/70 hover:text-white text-3xl font-light leading-none z-10 transition-colors">&times;</button>
+            <div class="relative max-w-[90vw] max-h-[90vh]" onclick="event.stopPropagation()">
+                <!-- Film frame border -->
+                <div class="bg-black border-[6px] border-neutral-800 p-2 shadow-2xl">
+                    <div class="text-[8px] font-mono text-neutral-500 text-center mb-1">KODAK 5063 &bull; REEL #28</div>
+                    <img id="lightbox-img" src="" alt="" class="block max-w-[80vw] max-h-[75vh] object-contain filter contrast-[1.05]">
+                    <div class="text-[8px] font-mono text-neutral-500 text-center mt-1">FOUND: JULY 1987 &bull; KOLHAPUR</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-vintage-charcoal/10 text-center text-xs text-vintage-charcoal/50 tracking-wider font-mono">
+        Created for Snehal's Truly Timeless Celebration © 2026
+    </footer>
+
+    <!-- Audio Node -->
+    <audio id="audio-element"></audio>
+
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- html2canvas library for capturing the certificate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
