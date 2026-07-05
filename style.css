@@ -1,0 +1,218 @@
+/* --- VINTAGE STYLES & TYPOGRAPHY SYSTEM --- */
+
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background-color: #f6f1e5;
+    /* Soft parchment gradients */
+    background-image: radial-gradient(circle, rgba(253, 251, 247, 0.3) 20%, rgba(216, 204, 190, 0.45) 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Layered authentic old paper fibers & organic tea-stain texture */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -99;
+    opacity: 0.28;
+    background-image: 
+        /* Microscopic paper pulp grain noise */
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+        /* Large organic vintage fiber stains */
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='parchment'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0 0.36 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23parchment)'/%3E%3C/svg%3E");
+    background-blend-mode: multiply;
+}
+
+/* --- CINEMATIC FILM GRAIN EFFECT --- */
+.film-grain-overlay {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: grain-animation 1.2s steps(10) infinite;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035; /* Kept very subtle so it does not distract from reading */
+}
+
+@keyframes grain-animation {
+    0%, 100% { transform:translate(0, 0); }
+    10% { transform:translate(-2%, -4%); }
+    20% { transform:translate(-6%, 2%); }
+    30% { transform:translate(3%, -10%); }
+    40% { transform:translate(-2%, 10%); }
+    50% { transform:translate(-6%, 4%); }
+    60% { transform:translate(6%, 6%); }
+    70% { transform:translate(1%, 14%); }
+    80% { transform:translate(-4%, 4%); }
+    90% { transform:translate(4%, -4%); }
+}
+
+.font-serif {
+    font-family: 'DM Serif Display', 'Noto Serif Devanagari', serif;
+}
+
+.font-instrument {
+    font-family: 'Instrument Serif', serif;
+}
+
+/* Custom Scrollbar for LP Track List */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(44, 37, 32, 0.05);
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(154, 52, 18, 0.3);
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(154, 52, 18, 0.6);
+}
+
+/* --- TURNTABLE ANIMATIONS --- */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-vinyl-spin {
+    animation: spin 4s linear infinite;
+}
+
+/* Needle Active State (default is rotated off disk, active slides on) */
+#turntable-needle {
+    transform: rotate(-12deg);
+}
+#turntable-needle.active {
+    transform: rotate(15deg);
+}
+
+/* --- VINTAGE CELLULOID FILM STRIP DESIGN --- */
+
+/* Repeating sprocket holes exposing parent cream background */
+.bg-repeating-sprockets {
+    background-image: repeating-linear-gradient(
+        90deg,
+        #fdfbf7 0px,
+        #fdfbf7 10px,
+        transparent 10px,
+        transparent 22px
+    );
+    height: 12px;
+}
+
+/* Film Strip Horizontal Marquee Animation */
+@keyframes film-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-film-scroll {
+    animation: film-scroll 22s linear infinite;
+}
+.animate-film-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* --- FILM GRAIN OVERLAYS --- */
+
+.film-grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+.grain-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* --- CRT TELEVISION STYLING --- */
+
+.crt-tv {
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.95), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background-color: #0b1c0e; /* Deep emerald-tinted screen glow */
+}
+
+/* Curved CRT screen reflection glass overlay */
+.crt-screen-reflection {
+    background: radial-gradient(
+        circle at 50% 15%,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+}
+
+/* --- VINTAGE POSTCARD & PARCHMENT PATTERNS --- */
+
+.postcard-card {
+    background-color: #fcfaf2;
+    background-image: linear-gradient(135deg, #fdfbf7 0%, #f4eee1 100%);
+    box-shadow: 0 12px 32px -8px rgba(44, 37, 32, 0.12);
+}
+
+/* --- ANIMATION MARQUEE TICKER --- */
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- CINEMA BLACKOUT & CERTIFICATE CEREMONY --- */
+
+.cinema-blackout {
+    background-color: #0c0a09 !important;
+    border-color: #1c1917 !important;
+    transition: all 0.8s ease-in-out;
+}
+
+.certificate-frame {
+    background-color: #fdfbf7;
+    background-image: radial-gradient(rgba(154, 52, 18, 0.03) 1.5px, transparent 0);
+    background-size: 24px 24px;
+    border: 10px double #2c2520;
+    box-shadow: 0 10px 30px rgba(44, 37, 32, 0.12);
+    position: relative;
+    padding: 1.5rem;
+}
+
+.certificate-border-inner {
+    border: 1.5px solid #9a3412;
+    padding: 2rem 1.5rem;
+}
+
+/* --- LIGHTBOX --- */
+@keyframes lb-pop {
+    from { transform: scale(0.88); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+}
+
+#lightbox-overlay img {
+    animation: lb-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
